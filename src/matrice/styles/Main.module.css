@@ -1,0 +1,46 @@
+.btn {
+    background-color: lightblue;
+    border: 1px solid black;
+    border-radius: 3px;
+    margin: 5px;
+}
+
+.btn:hover {
+    background-color: lightseagreen;
+}
+
+.matrices {
+    display: flex;
+    flex-direction: row;
+}
+
+.matrix {
+    margin: 15px;
+    cursor: default;
+    user-select: none;
+}
+
+.row:hover {
+    background-color: lightgray;
+    /* border-radius: 2px; */
+}
+
+.element {
+    height: 100%;
+    padding: 0 5px;
+    /* border-radius: 2px; */
+}
+
+.element:hover {
+    background-color: rgba(52, 147, 230, 0.651);
+}
+
+.element_hover {
+    background-color: lightgray;
+    /* border-radius: 0px; */
+}
+
+.element_hover_first_last {
+    background-color: lightgray;
+    /* border-radius: 2px; */
+}
