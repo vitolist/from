@@ -11,6 +11,9 @@ const Main = () => {
     const [result, setResult] = useState([]);
     const [index1, setIndex1] = useState(-1);
     const [index2, setIndex2] = useState(-1);
+    const [index3, setIndex3] = useState(-1);
+    const [selected, setSelected] = useState(false);
+    const [operation, setOperation] = useState("");
 
     const random = (bound) => {
         return Math.trunc(Math.floor(Math.random() * bound));
@@ -46,6 +49,7 @@ const Main = () => {
 
     const add = (mat1, mat2) => {
         if (check(mat1, mat2)) {
+            setOperation("+");
             const m = mat1.length;
             const n = mat1[0].length;
             const mat = Array(m).fill().map(() => Array(n));
@@ -64,6 +68,7 @@ const Main = () => {
 
     const sub = (mat1, mat2) => {
         if (check(mat1, mat2)) {
+            setOperation("-");
             const m = mat1.length;
             const n = mat1[0].length;
             const mat = Array(m).fill().map(() => Array(n));
@@ -134,7 +139,7 @@ const Main = () => {
                     {matrix1.map((row, i) => (
                         <div className={styles.row} key={i}>
                             {row.map((element, j) => (
-                                <Element key={j} {...{ id: j, value: element, index: index1, setIndex: setIndex1 }}></Element>
+                                <Element key={j} {...{ id: j, value: element, index: index1, setIndex: setIndex1, operation: "" }}></Element>
                             ))}
                         </div>
                     ))}
@@ -144,7 +149,7 @@ const Main = () => {
                     {matrix2.map((row, i) => (
                         <div className={styles.row} key={i}>
                             {row.map((element, j) => (
-                                <Element key={j} {...{ id: j, value: element, index: index2, setIndex: setIndex2 }}></Element>
+                                <Element key={j} {...{ id: j, value: element, index: index2, setIndex: setIndex2, operation: "" }}></Element>
                             ))}
                         </div>
                     ))}
@@ -154,13 +159,13 @@ const Main = () => {
                     {result.map((row, i) => (
                         <div className={styles.row} key={i}>
                             {row.map((element, j) => (
-                                <Element key={j} {...{ id: j, value: element, index: -1, setIndex: () => { } }}></Element>
+                                <Element key={j} {...{ id: j, value: element, index: index3, setIndex: setIndex3, operation: operation }}></Element>
                             ))}
                         </div>
                     ))}
                 </div> : <div>prazno</div>}
 
-                <p>{index1} {index2}</p>
+                {/* <p>{index1} {operation} {index2}</p> */}
             </div>
         </div>
     )
